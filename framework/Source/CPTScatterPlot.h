@@ -106,6 +106,8 @@ CPTScatterPlotInterpolation;
 
 ///	@}
 
+-(void)scatterPlot:(CPTScatterPlot *)plot didComputeDataLinePathContainedInRect:(NSValue*)rectValue;
+
 @end
 
 #pragma mark -

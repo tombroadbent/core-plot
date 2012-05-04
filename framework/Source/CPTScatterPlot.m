@@ -847,6 +847,13 @@ NSString *const CPTScatterPlotBindingPlotSymbols = @"plotSymbols"; ///< Plot sym
         CGPathAddLineToPoint(dataLinePath, NULL, firstXValue, baselineYValue);
         CGPathCloseSubpath(dataLinePath);
     }
+    
+    if ([self.delegate respondsToSelector:@selector(scatterPlot:didComputeDataLinePathContainedInRect:)])
+    {
+        CGRect pathBounds = CGPathGetPathBoundingBox(dataLinePath);
+        NSValue *rectValue = [NSValue valueWithCGRect:pathBounds];
+        [self.delegate performSelector:@selector(scatterPlot:didComputeDataLinePathContainedInRect:) withObject:self withObject:rectValue];
+    }
 
     return dataLinePath;
 }
