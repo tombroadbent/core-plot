@@ -692,13 +692,12 @@ NSString *const CPTScatterPlotBindingPlotSymbols = @"plotSymbols"; ///< Plot sym
         }
 
         // Draw line
-        CPTLineStyle *theLineStyle = self.dataLineStyle;
-        if ( theLineStyle ) {
+        if ( self.dataLineStyle ) {
             CGPathRef dataLinePath = [self newDataLinePathForViewPoints:viewPoints indexRange:viewIndexRange baselineYValue:NAN];
             CGContextBeginPath(theContext);
             CGContextAddPath(theContext, dataLinePath);
-            [theLineStyle setLineStyleInContext:theContext];
-            [theLineStyle strokePathInContext:theContext];
+            [self.dataLineStyle setLineStyleInContext:theContext];
+            [self.dataLineStyle strokePathInContext:theContext];
             CGPathRelease(dataLinePath);
         }
 
