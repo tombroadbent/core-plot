@@ -95,6 +95,10 @@
     piePlot.sliceDirection = CPTPieDirectionCounterClockwise;
     piePlot.overlayFill    = [CPTFill fillWithGradient:overlayGradient];
 
+    piePlot.labelRotationRelativeToRadius = YES;
+    piePlot.labelRotation                 = -M_PI_2;
+    piePlot.labelOffset                   = -50.0;
+
     piePlot.delegate = self;
     [graph addPlot:piePlot];
     [piePlot release];
@@ -175,7 +179,7 @@
 
 -(NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index
 {
-    return [NSString stringWithFormat:@"Pie Slice %u", index];
+    return [NSString stringWithFormat:@"Pie Slice %lu", (unsigned long)index];
 }
 
 @end

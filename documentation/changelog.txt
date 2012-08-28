@@ -10,9 +10,18 @@
 - **New**: Added a plot data label selection delegate method.
 - **New**: Added a line fill property to `CPTLineStyle`.
 - **New**: Added point selection delegate methods to `CPTRangePlot` and `CPTTradingRangePlot`.
-- **New**: Added an end angle property to `CPTPieChart`.
+- **New**: Added an end angle property and the ability to rotate data labels relative to the pie radius to `CPTPieChart`.
 - **New**: Added the `-didFinishDrawing:` delegate method to `CPTPlot`.
 - **New**: Added selection delegate methods that include the event that triggered the selection to all plots.
+- **New**: Added plot space convenience methods that convert global interaction coordinates obtained from an OS event to plot area drawing coordinates.
+- **New**: Added the plot symbol anchor point.
+- **New**: Added a corner radius property to `CPTBarPlot` that applies to the base value end of the bars.
+- **New**: Added a method to `CPTBarPlot` that computes a plot range that encloses all of the bars, including the bar width and bar offset.
+- **New**: Added bindings for plot data labels, bar plot fills and borders, and pie chart fills and radial offsets.
+- **New**: Added bindings and data source methods for all line styles and fills in range and trading range plots.
+- **New**: Added additional data source methods to all plots so each data source item can be supplied one at a time or in an array.
+- **New**: Added multi-dimensional data array support to `CPTNumericData`.
+- **New**: Added a new plot datasource method that returns a multi-dimensional `CPTNumericData` containing data for all plot fields.
 - **Changed**: Changed the superclass of `CPTTextLayer` from `CPTLayer` to `CPTBorderedLayer`.
 - **Changed**: Changed all iOS header files to "Project" visibility to prevent problems with archiving an app that uses the Core Plot static library.
 

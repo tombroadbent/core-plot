@@ -54,10 +54,14 @@ static void resolveHSV(CGFloat *color1, CGFloat *color2);
  **/
 @implementation CPTGradient
 
+///	@cond
+
 /** @property colorspace
  *  @brief The colorspace for the gradient colors.
  **/
 @synthesize colorspace;
+
+///	@endcond
 
 /** @property blendingMode
  *  @brief The color blending mode used to create the gradient.
@@ -700,7 +704,7 @@ static void resolveHSV(CGFloat *color1, CGFloat *color2);
     CPTGradientElement removedElement = [newGradient removeElementAtIndex:index];
 
     if ( isnan(removedElement.position) ) {
-        [NSException raise:NSRangeException format:@"-[%@ removeColorStopAtIndex:]: index (%i) beyond bounds", [self class], index];
+        [NSException raise:NSRangeException format:@"-[%@ removeColorStopAtIndex:]: index (%lu) beyond bounds", [self class], (unsigned long)index];
     }
 
     return [newGradient autorelease];
@@ -727,7 +731,7 @@ static void resolveHSV(CGFloat *color1, CGFloat *color2);
 #endif
     }
 
-    [NSException raise:NSRangeException format:@"-[%@ colorStopAtIndex:]: index (%i) beyond bounds", [self class], index];
+    [NSException raise:NSRangeException format:@"-[%@ colorStopAtIndex:]: index (%lu) beyond bounds", [self class], (unsigned long)index];
 
     return NULL;
 }
